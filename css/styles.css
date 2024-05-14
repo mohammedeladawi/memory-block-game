@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial;
+}
+
+
+/* Start Splash Screen */
+.control-buttons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(33 150 243 / 90%);
+    z-index: 2;
+}
+
+.control-buttons span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 25px;
+    background-color: #f44336;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.info-container {
+    width: 800px;
+    font-size: 24px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #F6F6F6;
+    border: 2px solid #2196F3;
+    display: flex;
+    justify-content: space-between;
+}
+
+.memory-game-blocks {
+    width: 850px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    gap: 10px;
+}
+
+.memory-game-blocks.no-clicking {
+    pointer-events: none;
+}
+
+.memory-game-blocks .game-block {
+    font-size: 100px;
+    height: 200px;
+    flex: 1 0 200px;
+    position: relative;
+    text-align: center;
+    transform-style: preserve-3d;
+    color: #fff;
+    transition: transform .5s;
+}
+
+.memory-game-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 5px solid #2196F3;
+    line-height: 200px;
+    backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.memory-game-blocks .game-block .front {
+    background-color: #333;
+}
+
+.memory-game-blocks .game-block .front:before {
+    content: '!';
+    font-weight: bold;
+}
+
+.memory-game-blocks .game-block .back {
+    background-color: #607D88;
+    transform: rotateY(180deg)
+}
+
+/* If We Have This Class Make Front Face Visible */
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.has-matched {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+}
